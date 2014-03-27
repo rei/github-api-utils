@@ -1,4 +1,4 @@
-github-api-bash-utils
+github-api-utils
 =====================
 
-Bash utilities for interfacing with the GitHub API
+> Utilities for interfacing with the [GitHub API](http://developer.github.com/v3/)
