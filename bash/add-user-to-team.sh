@@ -1,12 +1,12 @@
 #! /bin/bash
 
-# Add candidate to the specified team given the team ID.
+# Add a GitHub user to the specified team given the team ID.
 #
 # Uses the GitHub "Add a team member" API feature
 # http://developer.github.com/v3/orgs/teams/#add-team-member
 #
 # Usage:
-#     add-candidate-to-team TARGET_GITHUB_USERNAME GITHUB_TEAM_ID AUTH_TOKEN
+#     add-user-to-team TARGET_GITHUB_USERNAME GITHUB_TEAM_ID AUTH_TOKEN
 #
 # Params:
 #     TARGET_GITHUB_USERNAME - Username of the user you want to add to the team
@@ -30,15 +30,15 @@ TARGET_GITHUB_USERNAME=$1
 GITHUB_TEAM_ID=$2
 AUTH_TOKEN=$3
 
-# Make sure candidate's username exists
-echo "Checking candidate username '$TARGET_GITHUB_USERNAME'..."
-CANDIDATE_EXISTS="$(./is-valid-user $TARGET_GITHUB_USERNAME || exit 1)"
-if [ $CANDIDATE_EXISTS = "false" ]; then
-    echo "Error: Candidate '$TARGET_GITHUB_USERNAME' does not exist."
+# Make sure user's username exists
+echo "Checking username '$TARGET_GITHUB_USERNAME'..."
+USER_EXISTS="$(./is-valid-user $TARGET_GITHUB_USERNAME || exit 1)"
+if [ $USER_EXISTS = "false" ]; then
+    echo "Error: User '$TARGET_GITHUB_USERNAME' does not exist."
     echo
     exit 1
 fi
-echo "Candidate '$TARGET_GITHUB_USERNAME' is valid."
+echo "User '$TARGET_GITHUB_USERNAME' is valid."
 echo
 
 # Construct curl command
